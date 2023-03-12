@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            color: red;
+        }
+        li{
+            color: blue;
+        }
+        pre{
+            color:green
+        }
+    </style>
+</head>
+<body>
+    <p>1.what is hositing</p>
+    <li>hoisting is the default behaviour of js.where the all the functions and varaibales declarations are moved to the top</li>
+    <pre>
+        sayhello()
+        function sayhello(){
+            console.log("hosting")
+        }
+        <!-- or 2nd example--> 
+        hoistedvariable=3;
+        console.log(hoistedvariable);
+        var hoistedvariable
+    </pre>
+    <p>2.What are callbacks??</p>
+    <li>callback is a function that is passed as an argument to another function</li>
+    <li>the main purpose of using callbacks is to excute the code in asynchronous in js</li>
+    <pre>
+        function call (name) {
+            console.log("Hii ",name);
+        }
+          
+        function Func(calling) {
+            calling("pavan");
+        }
+        Func(call)
+    </pre>
+    <p>3.what is callback hell</p>
+    <li>callback hell function is a asynchronous function which is formed like pyramid like structure which is difficult to understand and read</li>
+    <pre>
+        function calltime(){
+            setTimeout(()=>{
+             console.log("1");
+             setTimeout(()=>{
+                 console.log("2");
+                 setTimeout(()=>{
+                     console.log("3");
+                     setTimeout(()=>{
+                         console.log("4");
+                         setTimeout(()=>{
+                             console.log("5");
+                             setTimeout(()=>{
+                                 console.log("6")
+                                 setTimeout(()=>{
+                                     console.log("7")
+                                 },7000)
+                             },6000)
+                            },5000)
+                     },4000)
+                    },3000)
+             },2000)
+            },1000)
+         }
+         calltime() 
+<p>4.What are promises and why do we need them?</p>
+<li>promises are used to handle the asynchronous operations in js.</li>
+<li>they are easily managable while excuting the callback hell functions</li>
+<li>promises can handle the multiple asynchronous operations easily and provide error handling than callbacks and events</li>
+<li>BENEFITS
+    <li>better error handiling</li>
+    <li>better code readability</li>
+    <li>easy and better handling of asynchronous functions</li>
+</li>
+<pre>
+    var promise=new Promise(function(resolve,reject){
+        var x="pavan"
+        var y="pavan"
+        if(x===y){
+            resolve()
+        }else{
+            reject()
+        }
+    })
+    promise.then(()=>{
+        console.log("sucess")
+    })
+    promise.catch(()=>{
+        console.log("failed")
+    })
+</pre>
+<p>5.What is promise chaining</p>
+<li>the process of excuting the  sequence of asynchronous task one after another using promise is known as promise chaining</li>
+<pre>
+    new Promise(function(resolve,reject){
+        setTimeout(()=>{resolve(1),1000})
+    }).then(function(Result){
+        console.log(Result)
+        return Result *2
+    }).then(function(Result){
+        console.log(Result)
+        return Result *3
+    })
+    .then(function(Result){
+        console.log(Result)
+        return Result *4
+    })
+</pre>
+         <p>6.Give an example of async/await</p>
+         <pre>
+             function resolveafter2seconds(){
+                 return new Promise(resolve =>{
+                     setTimeout(()=>{
+                         console.log("Problem resolved")
+                     },2000)
+                 })
+             }
+              async function asynccall(){
+                 console.log("function calling")
+                 const result = awaitresolveafter2seconds();
+                 console.log(result)
+              }
+         </pre>
+         <p>7.What is the purpose of async/await keywords?</p>
+         <li>async and await are reserved keywords. Async function is a function declared with async keyword and await keyword is permitted within it.Async and await keywords are used to provide clean code to avoid the need of promise chains.</li>
+         <pre>
+            let promise = new Promise(function(resolve,reject){
+                setTimeout(()=>{
+                    resolve("Promise resolved")
+                },3000)
+            })
+              async function myFunction(){
+                let result=await promise;
+                console.log(result);
+            }
+            myFunction();
+         </pre>
+         <p>8.What are pure functions?</p>
+         <li>pure functions are the functions always return the same results if the same arguments are passed</li>
+         <pre>
+            function add(a,b){
+                console.log(a+b)
+             }
+             add(10,13)
+         </pre>
+         <script src="./main.js"></script>
+    </pre>
+</body>
+</html>
